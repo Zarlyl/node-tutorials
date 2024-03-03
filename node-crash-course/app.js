@@ -3,14 +3,13 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
 
-// environment variables
-require('dotenv').config();
-
 // express app
 const app = express();
 
+// environment variables
+require('dotenv').config();
+
 // connect to mongodb
-console.log('This is the db URI: ' + process.env.DB_URI);
 const dbURI = process.env.DB_URI;
 mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
